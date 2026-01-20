@@ -1,0 +1,38 @@
+### Задание 1 (Базовое): Фикстуры для валидатора
+
+**Что нужно сделать:**
+
+1. Создай структуру:
+```
+validator_project/
+├── src/
+│   └── validators.py
+├── tests/
+│   ├── conftest.py
+│   └── test_validators.py
+```
+
+2. В `src/validators.py` напиши класс:
+```python
+class EmailValidator:
+    def is_valid(self, email):
+        # Твоя логика проверки email
+        pass
+```
+
+3. В `tests/conftest.py` создай фикстуру:
+```python
+@pytest.fixture
+def validator():
+    return EmailValidator()
+```
+
+4. В `tests/test_validators.py` используй фикстуру:
+```python
+def test_valid_email(validator):
+    assert validator.is_valid("john@example.com") == True
+```
+
+5. Напиши минимум 5 тестов для разных сценариев
+
+6. Запусти `pytest tests/` и убедись, что все проходят
